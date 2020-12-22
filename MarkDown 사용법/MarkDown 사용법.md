@@ -27,7 +27,7 @@
     ```
 
 > ### 4. 코드 블럭
-* ```<pre><code> 내용 </code></pre>'''
+*    <pre><code> 내용 </code></pre>
     ##### ex)
     ```
     <pre>
