@@ -75,5 +75,5 @@
     ##### ex)
     ```
     ```py
-    import sys
+    *import sys*
     input = sys.stdin.readline
