@@ -71,9 +71,9 @@
  ***
 
  ### 8. 코드 인용
- * `뒤에 py를 쓰면 코드가 python 형식으로 키워드가 강조된다.
+ * `뒤에 py를 쓰면 코드가 *python* 형식으로 키워드가 강조된다.
     ##### ex)
     ```
     ```py
-    *import sys*
+    **import sys**
     input = sys.stdin.readline
