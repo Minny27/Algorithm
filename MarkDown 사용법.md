@@ -79,3 +79,10 @@
     ```py
     import sys
     input = sys.stdin.readline
+
+ ### 9.  링크 인용
+ * '<'>' 꺾쇠를 이용해서 링크를 생성할 수 있다.
+    ##### ex)
+    ```
+    <www.naver.com>
+    ```
