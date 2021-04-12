@@ -5,9 +5,9 @@ ex) API를 활용해서 Json data를 가져오는 것과 동시에 데이터를 
 > ### Type Property
 * **navigationController**
     - 현재 프로세스의 메인 스레드와 연결된 디스패치 큐
-   
+
 ***
-   
+
 > ### Instance Method
 * **async(execute:)**
     - 작업 항목을 즉시 실행하도록 예약하고 즉시 반환합니다.

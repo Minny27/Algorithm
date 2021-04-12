@@ -1,5 +1,5 @@
 # JSONSerialization
-JSON과 동등한 Foundation 개체 간에 변환되는 개체입니다.
+JSON과 동등한 Foundation 개체 간에 변환되는 클래스
 
 <!-- > ### Instance Method
 * **jsonObject(with:options:)(withIdentifier:)**
