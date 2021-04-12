@@ -13,7 +13,7 @@ UIKit 앱의 view 계층을 관리하는 클래스
     ```swift
     if let controller = self.storyboard?.instantiateViewController(withIdentifier : "DetailController") {
     self.navigationController?.pushViewController(controller, animated: true)
+    }
     ```
-}
 
 
