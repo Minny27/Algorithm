@@ -7,3 +7,6 @@
 
 * **public static final int LENGTH_SHORT**
     - 토스트 메시지의 지속시간을 짧게 가지는 함수. 디폴트 함수
+
+* **public void show ()**
+    - 특정 시간동안 토스트를 띄우는 함수
