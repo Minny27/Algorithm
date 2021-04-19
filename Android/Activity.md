@@ -1,7 +1,7 @@
 # Activity
 사용자가 액티비티내에서 수행할 수 있는 작업을 처리하는 클래스
 
-> ### Method
+> ### Methods
 * **protected void onCreate (Bundle savedInstanceState)**
     - 앱이 시작되고 바로 실행되는 함수, 화면을 채우기 위해서 setContentView()함수를 호출.
 

@@ -1,7 +1,7 @@
 # ArrayAdapter
 리스트 객체와 리스트 뷰를 연결시켜서 리스트 형태의 데이터를 보여주기 위한 클래스
 
-> ### Method
+> ### Methods
 * **public ArrayAdapter (Context context, int resource, List<T> objects)**
     - 어댑터의 생성자   
     ex)
