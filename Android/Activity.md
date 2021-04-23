@@ -10,3 +10,6 @@
 
 * **public void startActivity (Intent intent, Bundle options)**
     - 새로운 액티비티를 실행
+
+* **protected void onDestroy ()**
+    - 액티비티를 나갔다가 다시 들어올 때 이전의 입력했던 값을 save하고 싶을 떄 사용하는 함수
