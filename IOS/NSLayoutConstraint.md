@@ -5,10 +5,9 @@
 * **var isActive: Bool { get set }**
     - 제약조건의 활성 상태를 나타내는 불값
     ```swift
-    ex)
     subView.leadingCons = closetView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
     ```
-    
+
 ***
 
 > ### Type Method

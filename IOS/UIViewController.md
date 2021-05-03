@@ -10,7 +10,6 @@ UIKit 앱의 view 계층을 관리하는 클래스
 * **pushViewController(_:animated:)**
     - 뷰 컨트롤러를 수신기의 스택에 밀어넣고 디스플레이를 업데이트   
     ```swift
-    ex)
     if let controller = self.storyboard?.instantiateViewController(withIdentifier : "DetailController") {
     self.navigationController?.pushViewController(controller, animated: true)
     }
