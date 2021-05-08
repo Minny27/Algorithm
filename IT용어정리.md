@@ -55,3 +55,7 @@ ex) sys, math, itertools
 * **크롤링**
     - 크롤링(crawling) 혹은 스크레이핑(scraping)은 웹 페이지를 그대로 가져와서 거기서 데이터를 추출해 내는 행위  
     참고 출처: 나무위키
+
+* **마이그래이션**
+    - 데이터 마이그레이션은 데이터를 한 위치에서 다른 위치로, 한 형식에서 다른 형식으로 또는 한 애플리케이션에서 다른 애플리케이션으로 이동하는 프로세스  
+    참고 출처: <https://www.netapp.com/ko/knowledge-center/what-is-data-migration/>
