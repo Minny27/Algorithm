@@ -1,5 +1,5 @@
 # UIViewController
-UIKit 앱의 view 계층을 관리하는 클래스
+UIKit 앱의 view 계층을 관리하는 클래스. 안드로이드에서 Activity 클래스와 상응하는 개념
 
 ### Instance Property
 * **navigationController**
