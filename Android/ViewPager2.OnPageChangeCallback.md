@@ -3,3 +3,6 @@
 
 * **public static abstract class ViewPager2.OnPageChangeCallback**
 
+> ### Methods
+* **public void onPageSelected (int position)**
+    - 새 페이지가 선택되면 호출되는 함수. 애니메이션이 반드시 완성된 것은 아님
