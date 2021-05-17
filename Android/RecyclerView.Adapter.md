@@ -9,3 +9,6 @@
 
 * **public abstract void onBindViewHolder (VH holder, int position)**
     - 지정된 위치에 데이터를 보여주기 위해 RecyclerView에 의해 호출되는 함수
+
+* **public abstract int getItemCount ()**
+    - 어댑터가 보유한 데이터 집합의 개수를 반환하는 함수
