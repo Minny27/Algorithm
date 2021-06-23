@@ -96,7 +96,13 @@ input = sys.stdin.readline
 
 
 #### 9. 링크 인용
-* '<'>' 꺾쇠를 이용해서 링크를 생성할 수 있다.  
+* '[' ']' 꺾쇠를 이용해서 외부 링크를 생성할 수 있다.  
+```
+ex)
+[naver](www.naver.com, "naver link")
+```
+
+* '<'>' 꺾쇠를 이용해서 자동 연결 링크를 생성할 수 있다.  
 ```
 ex)
 <www.naver.com>
