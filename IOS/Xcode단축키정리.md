@@ -6,11 +6,14 @@
 * Run
     - cmd + R
 
-* 왼쪽 네비게이터 없애기 
+* 왼쪽 Navigator 없애기 
     - cmd + 0
 
 * 오른쪽 Inspectors 없애기
     - cmd + Option + 0
+
+* 아래 Debug Area 없애기
+    - cmd + shift + Y
 
 * 디버깅 한 단계 넘기기
     - fn + F6
