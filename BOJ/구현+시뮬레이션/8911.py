@@ -10,9 +10,9 @@ ans = []
 for case in testCase:
     iArr = set()
     jArr = set()
-    iArr.add(0)
-    jArr.add(0)
-    tutle = [0, 0, 0] # 방향, i, j
+    iArr.add(0) # 거북이가 지나간 y축 좌표 집합
+    jArr.add(0) # 거북이가 지나간 x축 좌표 집합
+    tutle = [0, 0, 0] # 방향, 행, 열
     for s in case:
         if s == "F":
             if tutle[0] == 0:
@@ -54,7 +54,5 @@ for case in testCase:
             tutle[0] = (tutle[0] - 1) % 4
     sortI = sorted(iArr)
     sortJ = sorted(jArr)
-    print(sortI)
-    print(sortJ)
     ans.append((sortI[-1] - sortI[0]) * (sortJ[-1] - sortJ[0]))
 print("\n".join(map(str, ans)))
