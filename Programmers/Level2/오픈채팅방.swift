@@ -8,7 +8,7 @@ func solution(_ record:[String]) -> [String] {
     var ht = [String : String]() // [유저 아이디 : 닉네임]
     
     for str in record {
-        let line = str.split(separator: " ").map{String($0)}
+        let line = str.s짝지어 제거하기plit(separator: " ").map{String($0)}
         // Enter, Change 일 때만 닉네임을 갱신하므로 그 외의 경우는 넘어가기
         if line[0] != "Enter" && line[0] != "Change" {
             continue
