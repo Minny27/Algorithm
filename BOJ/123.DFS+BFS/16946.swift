@@ -12,9 +12,6 @@ for i in 0..<n {
     }
 }
 var ans = g
-
-
-
 let d = [[-1, 0], [1, 0], [0, -1], [0, 1]]
 
 func boundary(_ i: Int, _ j: Int) -> Bool {
