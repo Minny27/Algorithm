@@ -27,3 +27,4 @@ def bfs(f, s, g, u, d):
                 
     print("use the stairs")
 bfs(f, s, g, u, d)
+# test
