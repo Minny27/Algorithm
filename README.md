@@ -1,132 +1,132 @@
 ## 알고리즘 문제를 풀 때 자주 사용하는 문법
-[1. 입력](#입력)  
-[2. 문자열 나누기](#문자열-나누기)  
-[3. 그래프 생성](#그래프-생성)  
-[4. 타입 생성](#타입-생성)  
-[5. 정렬](#정렬)  
-[6. 출력](#출력)
+[딕셔너리](#딕셔너리)  
+[문자열](#문자열)  
+[정렬](#정렬)  
+[형변환](#형변환)  
+[타입 생성](#타입-생성)  
+[출력](#출력)  
+[그래프 생성](#그래프-생성)
 
-### 입력
-* **정수 하나** 
+### 딕셔너리
+* **기본**
     ```swift
-    let number = Int(readLine()!)!
+    /* 선언 */
+    let dict = [String: Int]()
+
+    /* 할당 */
+    let dict["A"] = 0
+
+    /* 꺼내기 */
+    let value = dict["A"] ?? 0 // key가 없어서 nil을 리턴받을 수 있음.
     ```
 
-* **문자열 한 줄** 
+* **응용**
     ```swift
-    let string = readLine()!
-    ```
+    /* 선언된 키에 번호 매기기 */
+    let fruit = ["apple", "banana", "melon"]
+    let dict = Dictionary(uniqueKeysWithValues: zip(fruit, 0..<3))
 
-* **n개의 줄, 정수 하나씩 입력받을 때**
-    ```swift
-    let n = Int(readLine()!)!
-    var intArray = [Int]()
-
-    for i in 0 ..< n {
-        let value = Int(readLine()!)!
-        intArray.append(value)
-    }
-
-    또는
-
-    var intArray = [Int](repeating: 0, count: n)
-
-    for i in 0 ..< n {
-        let value = Int(readLine()!)!
-        intArray[i] = value
-    }
-
-    또는
-
-    let n = Int(readLine()!)!
-    var intArray =  (0 ..< n).compactMap { _ in Int(readLine()!) }
+    /* 번호 키에 모든 값 0으로 할당 */
+    let dict = Dictionary(uniqueKeysWithValues: zip(0..<26, Array(repeating: 0, count: 26)))
     ```
 
 <br>
 
-### 문자열 나누기
-```swift
-let numberArray = readLine()!.split(separator: " ").map { Int(String($0))! }
-
-또는
-
-import Foundation
-let numberArray = readLine()!.components(separatedBy: " ").map { Int(String($0))! }
-/* Int(String($0))! 로 쓰는 이유는 Int($0)! 보다 속도가 더 빠르기 때문 */
-```
-
-<br>
-
-> ### 2차원 배열
-* **띄어쓰기, 정수**
+### 문자열
+* **String -> String Array**
     ```swift
-    var numberArray = [[Int]]()
-    for _ in 0..<3 {
-        let line = readLine()!.split(separator: " ").map { Int($0)! }
-        numberArray.append(line)
-    }
+    let name = "Seungmin"
+    let nameArray = Array(name).map { String($0) } // 음절을 String으로 형변환을 하지 않으면 Character 타입이 됨
     ```
 
-* **띄어쓰기, 문자열**
+* **String Array -> String**
     ```swift
-    var stringArray = [[String]]()
-    for _ in 0..<3 {
-        let line = readLine()!.split(separator: " ").map { String($0) }
-        stringArray.append(line)
-    }
+    let nameArray = ["S","e","u","n","g","m","i","n"]
+    let name = nameArray.joined()
     ```
 
-* **띄어쓰기 x, 1차원 문자열 -> 2차원 정수**
+* **String Array -> Two Dimensional String Array**
     ```swift
     let stringArray = ["010", "0001", "0101"]
     var array = [[Int]]()
-    for string in stringArray {
-        var line = [Int]()
-        for char in string {
-            line.append(Int(String(char))!)
-        }
-        array.append(line)
-    }
-
-    또는
-
-    for string in stringArray {
-        let line = Array(string).map { Int(String($0))! }
-        array.append(line)
-    }
-
-    또는
-
-    stringArray.forEach {
-        let line = Array($0).map { Int(String($0))! }
-        array.append(line)
-    }
-    ```
-
-* **띄어쓰기 x, 1차원 문자열 -> 2차원 문자열**
-    ```swift
-    let stringArray = ["Hi", "there", "bye!"]
-    var array = [[String]]()
-    for string in stringArray {
-        var line = [String]()
-        for char in string {
-            line.append(String(char))
-        }
-        array.append(line)
-    }
-
-    또는
 
     for string in stringArray {
         let line = Array(string).map { String($0) }
         array.append(line)
     }
+    ```
 
-    또는
+<br>
+    
+### 정렬
+* **1차원 배열**
+    ```swift
+    var array: [Int] = [5, 3, 1, 4]
 
-    stringArray.forEach {
-        let line = Array($0).map { String($0) }
-        array.append(line)
+    /* 오름차순 */
+    array.sort()
+    array.sort(by: <)
+    array.sort{ $0 < $1 }
+    ```
+
+* **2차원 배열**
+    ```swift
+    var array: [[Int]] = [[5, 1], [2, 4], [3, 5], [3, 2]]
+
+    /* 배열의 두 번째 인덱스 값을 기준으로 내림차순 정렬 */
+    array.sort { $0[1] > $1[1] }
+
+    /* 배열의 첫 번째 인덱스 값 오름차순 정렬 후, 같은 값은 두 번째 인덱스 값 내림차순 정렬 */
+    array.sort { ($0[0], $1[1]) < ($1[0], $0[1]) }
+    ```
+
+<br>
+
+### 형변환
+* **Character -> Int**
+    ```swift
+    let str = "a"
+    let intValue = Character(str).asciiValue!
+    ```
+
+* **Character -> Int**
+    ```swift
+    let n = 65
+    let stringValue = Character(UnicodeScalar(n)!)
+    ```
+
+<br>
+
+### 타입 생성
+* **Typealias**
+    ```swift
+    /* typealias로 모델을 생성하면 객체를 생성할 때, 파라미터 이름을 쓰지 않아도 됨. */
+    typealias Data = (prior: Int, index: Int)
+    let data = Data(0, 0)
+    ```
+
+* **구조체**
+    ```swift
+    struct DataType {
+        var prior: Int
+        var index: Int
+    
+        init(_ prior: Int, _ index: Int) {
+            self.prior = prior
+            self.index = index
+        }
+    }
+    let data = DataType(0, 0)
+    ```
+
+<br>   
+
+### 출력
+* **문자열 합쳐서 출력**
+    ```swift
+    let stringArray : [[String]] = [["a","b","c"], ["d","e","f"]]
+    for string in stringArray {
+        print(string.joined())
     }
     ```
 
@@ -143,103 +143,5 @@ let numberArray = readLine()!.components(separatedBy: " ").map { Int(String($0))
         let adj = readLine()!.split(separator: " ").map{Int($0)!}
         g[adj[0]].append(adj[1])
         g[adj[1]].append(adj[0])
-    }
-    ```
-
-<br>
-
-### 타입 생성
-* **Typealias**
-    ```swift
-    // typealias로 모델을 생성하면 파라미터 이름을 쓰지 않아도 됨.
-    typealias Data = (prior: Int, index: Int)
-
-    var array: [Data] = readLine()!.split(separator: " ").enumerated().map { (Int($1)!, $0) }
-    ```
-
-* **구조체**
-    ```swift
-    struct DataType {
-        var prior: Int
-        var index: Int
-    
-        init(_ prior: Int, _ index: Int) {
-            self.prior = prior
-            self.index = index
-        }
-    }
-
-    var array: [DataType] = readLine()!.split(separator: " ").enumerated().map { DataType(Int($1)!, $0) }
-    ```
-    
-### 정렬
-* **1차원 배열**
-    ```swift
-    var array: [Int] = [5, 3, 1, 4]
-
-    /* 오름차순 */
-    array.sort()
-    array.sort(by: <)
-    array.sort{ $0 < $1 }
-    
-    /* 내림차순 */
-    array.sort(by: >)
-    array.sort{ $0 > $1 }
-    ```
-
-* **2차원 배열**
-    ```swift
-    var array: [[Int]] = [[5, 1], [2, 4], [3, 5], [3, 2]]
-
-    /* 배열의 두 번째 인덱스 값을 기준으로 내림차순 정렬 */
-    array.sort { $0[1] > $1[1] }
-
-    /* 배열의 첫 번째 인덱스 값 오름차순 정렬 후, 같은 값은 두 번째 인덱스 값 내림차순 정렬 */
-    array.sort { ($0[0], $1[1]) < ($1[0], $0[1]) }
-    array.sort(by: { ($0[0], $1[1]) < ($1[0], $0[1]) })
-    ```
-    
-# 출력
-
-> ### 2차원 배열
-* **정수 - 열은 띄어쓰고 다음 행은 new line**
-    ```swift
-    let numberArray : [[Int]] = [[1,2,3], [4,5,6]]
-    for i in numberArray {
-        for j in i {
-            print(j, terminator: " ")
-        }
-        print()
-    }
-
-    또는
-
-    numberArray.forEach {
-        $0.forEach { print($0, terminator: " ") }
-        print()
-    }
-
-    또는
-
-    for line in numberArray {
-        print(line.map { String($0) }.joined(separator: " "))
-    }
-
-    또는
-
-    numberArray.forEach {
-        print($0.map { String($0) }.joined(separator: " "))
-    }
-    ```
-
-* **문자열 합쳐서 출력**
-    ```swift
-    let stringArray : [[String]] = [["a","b","c"], ["d","e","f"]]
-    for string in stringArray {
-        print(string.joined())
-    }
-
-    stringArray.forEach {
-        print($0.joined(separator: ""))
     }
     ```
