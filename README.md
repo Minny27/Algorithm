@@ -53,7 +53,7 @@
     var array = [[Int]]()
 
     for string in stringArray {
-        let line = Array(string).map { String($0) }
+        let line = string.map { String($0) }
         array.append(line)
     }
     ```
