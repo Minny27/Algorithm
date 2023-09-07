@@ -35,6 +35,21 @@
 <br>
 
 ### 문자열
+* **Hour to Second**
+    ```swift
+    import Foundation
+
+    func hToSecond(_ h: String) -> Int {
+        let split = h.components(separatedBy: ":")
+        let h = (Int(split[0]) ?? 0) * 60 * 60
+        let m = (Int(split[1]) ?? 0) * 60
+        let s = (Int(split[2]) ?? 0)
+        return h + m + s
+    }
+    print(hToSecond("1:01:06")) // 3666
+    ```
+
+
 * **String -> String Array**
     ```swift
     let name = "Seungmin"
