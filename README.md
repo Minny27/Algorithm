@@ -53,7 +53,7 @@
 * **String -> String Array**
     ```swift
     let name = "Seungmin"
-    let nameArray = Array(name).map { String($0) } // 음절을 String으로 형변환을 하지 않으면 Character 타입이 됨
+    let nameArray = Array(name).map { String($0) } // 각 요소를 String으로 형변환하지 않으면 Character 타입이 됨
     ```
 
 * **String Array -> String**
@@ -65,12 +65,7 @@
 * **String Array -> Two Dimensional String Array**
     ```swift
     let stringArray = ["010", "0001", "0101"]
-    var array = [[Int]]()
-
-    for string in stringArray {
-        let line = string.map { String($0) }
-        array.append(line)
-    }
+    var array = stringArray.map { Array($0).map { String($0) } }
     ```
 
 <br>
