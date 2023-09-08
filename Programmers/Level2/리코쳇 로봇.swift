@@ -30,6 +30,18 @@ func solution(_ board:[String]) -> Int {
         }
     }
 
+    // 벽에 도달하거나 보드의 끝에 도달할 때까지 이동하는 함수
+    func move(_ i: Int, _ j: Int, _ d: [Int]) -> (Int, Int) {
+        var (ni, nj) = (i, j)
+        while true {
+            (ni, nj) = (ni + d[0], nj + d[1])
+            if ni < 0 || ni >= n || nj < 0 || nj >= m { break }
+            if boards[ni][nj] == "D" { break }
+        }
+        return (ni - d[0], nj - d[1])
+    }
+
+    // bfs
     var queue = [(rp.0, rp.1)]
     while !queue.isEmpty {
         let (i, j) = queue.removeFirst()
@@ -43,17 +55,6 @@ func solution(_ board:[String]) -> Int {
                 queue.append((ni, nj))
             }
         }
-    }
-    
-    // 벽에 도달하거나 보드의 끝에 도달할 때까지 이동하는 함수
-    func move(_ i: Int, _ j: Int, _ d: [Int]) -> (Int, Int) {
-        var (ni, nj) = (i, j)
-        while true {
-            (ni, nj) = (ni + d[0], nj + d[1])
-            if ni < 0 || ni >= n || nj < 0 || nj >= m { break }
-            if boards[ni][nj] == "D" { break }
-        }
-        return (ni - d[0], nj - d[1])
     }
     
     // 가장 처음에 도착 지점에 도달한 경우가 답
