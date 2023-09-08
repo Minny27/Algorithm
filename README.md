@@ -2,8 +2,8 @@
 [1. 딕셔너리](#딕셔너리)  
 [2. 문자열](#문자열)  
 [3. 정렬](#정렬)  
-[4. 형변환](#형변환)  
-[5. 타입 생성](#타입-생성)  
+[4. 타입 생성](#타입-생성)  
+[5. 형변환](#형변환)  
 [6. 출력](#출력)  
 [7. 그래프 생성](#그래프-생성)
 
@@ -99,6 +99,35 @@
 
 <br>
 
+### 타입 생성
+* **Typealias**
+    ```swift
+    // typealias로 모델을 생성하면 객체를 생성할 때, 파라미터 이름을 쓰지 않아도 됨.
+    // 그러나 .0 .1로 접근해야하기 때문에 가독성이 떨어짐.
+    typealias Point = (Int, Int)
+    let point = Point(0, 0)
+    print(point.0, point.1)
+    ```
+
+* **구조체**
+    ```swift
+    // init에 argument label을 '_'로 줘서 typealias처럼 사용할 수 있음
+    // 그러나 구현 시간이 typealias보다 오래 걸림
+    struct Point {
+      let i: Int
+      let j: Int
+      
+      init(_ i: Int, _ j: Int) {
+        self.i = i
+        self.j = j
+      }
+    }
+    let point = Point(0, 0)
+    print(point.i, point.j)
+    ```
+
+<br>
+
 ### 형변환
 * **Character -> Int**
     ```swift
@@ -113,30 +142,6 @@
     ```
 
 <br>
-
-### 타입 생성
-* **Typealias**
-    ```swift
-    /* typealias로 모델을 생성하면 객체를 생성할 때, 파라미터 이름을 쓰지 않아도 됨. */
-    typealias Data = (Int, Int)
-    let data = Data(0, 0)
-    ```
-
-* **구조체**
-    ```swift
-    struct DataType {
-        var prior: Int
-        var index: Int
-    
-        init(_ prior: Int, _ index: Int) {
-            self.prior = prior
-            self.index = index
-        }
-    }
-    let data = DataType(0, 0)
-    ```
-
-<br>   
 
 ### 출력
 * **문자열 합쳐서 출력**
