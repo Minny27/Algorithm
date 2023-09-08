@@ -65,7 +65,7 @@
 * **String Array -> Two Dimensional String Array**
     ```swift
     let stringArray = ["010", "0001", "0101"]
-    var array = stringArray.map { Array($0).map { String($0) } }
+    var array = stringArray.map { $0.map { String($0) } }
     ```
 
 <br>
