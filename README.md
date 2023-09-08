@@ -2,8 +2,8 @@
 [1. 딕셔너리](#딕셔너리)  
 [2. 문자열](#문자열)  
 [3. 정렬](#정렬)  
-[4. 형변환](#형변환)  
-[5. 타입 생성](#타입-생성)  
+[4. 타입 생성](#타입-생성)  
+[5. 형변환](#형변환)  
 [6. 출력](#출력)  
 [7. 그래프 생성](#그래프-생성)
 
@@ -35,10 +35,25 @@
 <br>
 
 ### 문자열
+* **Hour to Second**
+    ```swift
+    import Foundation
+
+    func hToSecond(_ h: String) -> Int {
+        let split = h.components(separatedBy: ":")
+        let h = (Int(split[0]) ?? 0) * 60 * 60
+        let m = (Int(split[1]) ?? 0) * 60
+        let s = (Int(split[2]) ?? 0)
+        return h + m + s
+    }
+    print(hToSecond("1:01:06")) // 3666
+    ```
+
+
 * **String -> String Array**
     ```swift
     let name = "Seungmin"
-    let nameArray = Array(name).map { String($0) } // 음절을 String으로 형변환을 하지 않으면 Character 타입이 됨
+    let nameArray = Array(name).map { String($0) } // 각 요소를 String으로 형변환하지 않으면 Character 타입이 됨
     ```
 
 * **String Array -> String**
@@ -50,12 +65,7 @@
 * **String Array -> Two Dimensional String Array**
     ```swift
     let stringArray = ["010", "0001", "0101"]
-    var array = [[Int]]()
-
-    for string in stringArray {
-        let line = string.map { String($0) }
-        array.append(line)
-    }
+    var array = stringArray.map { $0.map { String($0) } }
     ```
 
 <br>
@@ -84,6 +94,35 @@
 
 <br>
 
+### 타입 생성
+* **Typealias**
+    ```swift
+    // typealias로 모델을 생성하면 객체를 생성할 때, 파라미터 이름을 쓰지 않아도 됨.
+    // 그러나 .0 .1로 접근해야하기 때문에 가독성이 떨어짐.
+    typealias Point = (Int, Int)
+    let point = Point(0, 0)
+    print(point.0, point.1)
+    ```
+
+* **구조체**
+    ```swift
+    // init에 argument label을 '_'로 줘서 typealias처럼 사용할 수 있음
+    // 그러나 구현 시간이 typealias보다 오래 걸림
+    struct Point {
+      let i: Int
+      let j: Int
+      
+      init(_ i: Int, _ j: Int) {
+        self.i = i
+        self.j = j
+      }
+    }
+    let point = Point(0, 0)
+    print(point.i, point.j)
+    ```
+
+<br>
+
 ### 형변환
 * **Character -> Int**
     ```swift
@@ -98,30 +137,6 @@
     ```
 
 <br>
-
-### 타입 생성
-* **Typealias**
-    ```swift
-    /* typealias로 모델을 생성하면 객체를 생성할 때, 파라미터 이름을 쓰지 않아도 됨. */
-    typealias Data = (Int, Int)
-    let data = Data(0, 0)
-    ```
-
-* **구조체**
-    ```swift
-    struct DataType {
-        var prior: Int
-        var index: Int
-    
-        init(_ prior: Int, _ index: Int) {
-            self.prior = prior
-            self.index = index
-        }
-    }
-    let data = DataType(0, 0)
-    ```
-
-<br>   
 
 ### 출력
 * **문자열 합쳐서 출력**
