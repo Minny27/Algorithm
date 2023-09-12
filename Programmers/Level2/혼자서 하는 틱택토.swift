@@ -7,60 +7,104 @@
 // i, j로 나올 수 있는 라인을 모두 정의해놓고 그 컬렉션을 반복해서 각 라인의 o, x 개수를 파악하는 것이 좋은 방법이었음.
 // 또한 조건도 개수로 먼저 거르고 개수 + 승리 유무 조건으로 거르는 게 더 효율적이라는 것을 알게 됨
 
-import Foundation
-
+// 성공 2
 func solution(_ board:[String]) -> Int {
-    let board = board.map { $0.map { String($0) } }
-    var (oCount,xCount,isOWin,isXWin) = (0,0,false,false)
+    var board = board.map { $0.map { String($0) } }
+    var oCount = 0
+    var xCount = 0
+    var isOWin = false
+    var isXWin = false
     
-    let lines = [[0,0,0,1,0,2],
-                  [1,0,1,1,1,2],
-                  [2,0,2,1,2,2],
-                  [0,0,1,0,2,0],
-                  [0,1,1,1,2,1],
-                  [0,2,1,2,2,2],
-                  [0,0,1,1,2,2],
-                  [0,2,1,1,2,0]]
-    
-    for l in board {
-        for v in l {
-            if v == "O" { oCount += 1; continue }
-            if v == "X" { xCount += 1; continue }
+    for i in 0..<3 {
+        for j in 0..<3 {
+            if board[i][j] == "O" { oCount += 1 }
+            else if board[i][j] == "X" { xCount += 1 }
         }
     }
+    
+    // 빙고 좌표 - 행, 열, 왼 대각선, 오 대각선
+    let lines = [[(0,0),(0,1),(0,2)],
+                [(1,0),(1,1),(1,2)],
+                [(2,0),(2,1),(2,2)],
+                [(0,0),(1,0),(2,0)],
+                [(0,1),(1,1),(2,1)],
+                [(0,2),(1,2),(2,2)],
+                [(0,0),(1,1),(2,2)],
+                [(0,2),(1,1),(2,0)]]
     
     for line in lines {
-        let di = [line[0], line[2], line[4]]
-        let dj = [line[1], line[3], line[5]]
-        var (o,x) = (0,0)
-        
-        for k in 0..<3 {
-            let (i,j) = (di[k], dj[k])
-            if board[i][j] == "O" { o += 1; continue }
-            if board[i][j] == "X" { x += 1; continue }
+        var o = 0
+        var x = 0
+        for (i,j) in line {
+            if board[i][j] == "O" { o += 1 }
+            else if board[i][j] == "X" { x += 1 }
         }
-        
-        if o == 3 { isOWin = true; continue }
-        if x == 3 { isXWin = true; continue }
+        if o == 3 { isOWin = true }
+        else if x == 3 { isXWin = true }
     }
     
-    // x 개수가 o보다 많을 수 없음
     if xCount > oCount { return 0 }
-        
-    // 무조건 o의 개수는 x의 개수보다 0 또는 1 많다
-    if oCount - xCount >= 2 { return 0 }
-
-    // 둘 다 이기는 경우는 없음
-    if isOWin && isXWin { return 0 }
-    
-    // O가 이기는 경우, 무조건 o == x + 1
-    if isOWin && oCount != xCount + 1 { return 0 }
-    
-    // X가 이기는 경우, 무조건 o == x
+    if oCount >= xCount + 2 { return 0 }
     if isXWin && oCount != xCount { return 0 }
-        
+    if isOWin && oCount != xCount + 1 { return 0 }
     return 1
 }
+
+// 성공1
+// import Foundation
+
+// func solution(_ board:[String]) -> Int {
+//     let board = board.map { $0.map { String($0) } }
+//     var (oCount,xCount,isOWin,isXWin) = (0,0,false,false)
+    
+//     let lines = [[0,0,0,1,0,2],
+//                   [1,0,1,1,1,2],
+//                   [2,0,2,1,2,2],
+//                   [0,0,1,0,2,0],
+//                   [0,1,1,1,2,1],
+//                   [0,2,1,2,2,2],
+//                   [0,0,1,1,2,2],
+//                   [0,2,1,1,2,0]]
+    
+//     for l in board {
+//         for v in l {
+//             if v == "O" { oCount += 1; continue }
+//             if v == "X" { xCount += 1; continue }
+//         }
+//     }
+    
+//     for line in lines {
+//         let di = [line[0], line[2], line[4]]
+//         let dj = [line[1], line[3], line[5]]
+//         var (o,x) = (0,0)
+        
+//         for k in 0..<3 {
+//             let (i,j) = (di[k], dj[k])
+//             if board[i][j] == "O" { o += 1; continue }
+//             if board[i][j] == "X" { x += 1; continue }
+//         }
+        
+//         if o == 3 { isOWin = true; continue }
+//         if x == 3 { isXWin = true; continue }
+//     }
+    
+//     // x 개수가 o보다 많을 수 없음
+//     if xCount > oCount { return 0 }
+        
+//     // 무조건 o의 개수는 x의 개수보다 0 또는 1 많다
+//     if oCount - xCount >= 2 { return 0 }
+
+//     // 둘 다 이기는 경우는 없음
+//     if isOWin && isXWin { return 0 }
+    
+//     // O가 이기는 경우, 무조건 o == x + 1
+//     if isOWin && oCount != xCount + 1 { return 0 }
+    
+//     // X가 이기는 경우, 무조건 o == x
+//     if isXWin && oCount != xCount { return 0 }
+        
+//     return 1
+// }
 
 // 이전 코드
 //func solution(_ board:[String]) -> Int {
