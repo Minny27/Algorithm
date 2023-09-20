@@ -49,11 +49,10 @@
     print(hToSecond("1:01:06")) // 3666
     ```
 
-
 * **String -> String Array**
     ```swift
     let name = "Seungmin"
-    let nameArray = Array(name).map { String($0) } // 각 요소를 String으로 형변환하지 않으면 Character 타입이 됨
+    let nameArray = name.map { String($0) } // 각 요소를 String으로 형변환하지 않으면 Character 타입이 됨
     ```
 
 * **String Array -> String**
@@ -61,7 +60,24 @@
     let nameArray = ["S","e","u","n","g","m","i","n"]
     let name = nameArray.joined()
     ```
-
+    
+* **문자열을 다른 문자열로 바꾸기**
+    ```swift
+    import Foundation
+    
+    var fruit = "bananaApple"
+    fruit = fruit.replacingOccurrences(of: "banana", with: "pine")
+    print(fruit) // pineApple
+    ```
+    
+* **모든 문자열이 특정 문자열인지 확인하기**
+    ```swift
+    var allA = "AAAAAA"
+    if allA.allSatisfy({ $0 == "A" }) {
+        print("All A!")
+    } // All A!
+    ```
+    
 * **String Array -> Two Dimensional String Array**
     ```swift
     let stringArray = ["010", "0001", "0101"]
