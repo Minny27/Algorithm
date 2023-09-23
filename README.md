@@ -53,12 +53,14 @@
     ```swift
     let name = "Seungmin"
     let nameArray = name.map { String($0) } // 각 요소를 String으로 형변환하지 않으면 Character 타입이 됨
+    print(nameArray) // ["S","e","u","n","g","m","i","n"]
     ```
 
 * **String Array -> String**
     ```swift
     let nameArray = ["S","e","u","n","g","m","i","n"]
     let name = nameArray.joined()
+    print(name) // Seungmin
     ```
     
 * **문자열을 다른 문자열로 바꾸기**
@@ -74,8 +76,8 @@
     ```swift
     var allA = "AAAAAA"
     if allA.allSatisfy({ $0 == "A" }) {
-        print("All A!")
-    } // All A!
+        print("All A!") // All A!
+    }
     ```
     
 * **String Array -> Two Dimensional String Array**
