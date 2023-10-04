@@ -5,7 +5,8 @@
 [4. 타입 생성](#타입-생성)  
 [5. 형변환](#형변환)  
 [6. 출력](#출력)  
-[7. 그래프 생성](#그래프-생성)
+[7. 그래프 생성](#그래프-생성)  
+[8. 고급 연산자](#고급-연산자)
 
 <br>
 
@@ -84,6 +85,12 @@
     ```swift
     let stringArray = ["010", "0001", "0101"]
     var array = stringArray.map { $0.map { String($0) } }
+    ```
+
+* **문자열 반복**
+    ```swift
+    let str = "Hi!"
+    let strs = String(repeating: str, count: 5) // Hi!Hi!Hi!Hi!Hi!
     ```
 
 <br>
@@ -180,3 +187,29 @@
         g[adj[1]].append(adj[0])
     }
     ```
+
+<br>
+
+### 고급 연산자
+* **NOT Operator(~)**
+    ```swift
+    let value = ~0b00001111 // 11110000, -16
+    ```
+
+* **AND Operator(&)**
+    ```swift
+    let value = 0b00001100 & 00000111 // 00000100, 4
+    ```
+    
+* **OR Operator(|)**
+    ```swift
+    let value = 0b00001100 | 00000111 // 00001111, 15
+    ```
+    
+* **XOR Operator(^)**
+    ```swift
+    let value = 0b00001111 ^ 0b00001101 // 00000010, 2
+    ```
+
+<br>
+
