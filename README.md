@@ -14,10 +14,15 @@
 * **기본**
     ```swift
     /* 선언 */
-    let dict = [String: Int]()
+    var dict = [String: Int]()
 
     /* 할당 */
-    let dict["A"] = 0
+    dict["A"] = 0
+
+    /* 키에 대한 기본값을 0으로 주고 특정 문자열이 나올 때마다 +1 */
+    for str in ["a","b","c"] {
+        dict[str, default: 0] += 1
+    }
 
     /* 꺼내기 */
     let value = dict["A"] ?? 0 // key가 없는 경우, nil을 리턴하기 때문에 ??으로 처리.
@@ -31,6 +36,10 @@
 
     /* 번호 키에 모든 값 0으로 할당 */
     let dict = Dictionary(uniqueKeysWithValues: zip(0..<26, Array(repeating: 0, count: 26)))
+    
+    /* 키에 값을 array로 그룹핑 */
+    let dict = Dictionary(grouping: fruit) { $0 }
+    // ["apple": ["apple"], "banana": ["banana"], "melon": ["melon"]]
     ```
 
 <br>
