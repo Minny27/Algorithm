@@ -33,9 +33,11 @@
     /* 선언된 키에 번호 매기기 */
     let fruit = ["apple", "banana", "melon"]
     let dict = Dictionary(uniqueKeysWithValues: zip(fruit, 0..<3))
+    // ["apple": 0, "banana": 1, "melon": 2]
 
     /* 번호 키에 모든 값 0으로 할당 */
-    let dict = Dictionary(uniqueKeysWithValues: zip(0..<26, Array(repeating: 0, count: 26)))
+    let dict = Dictionary(uniqueKeysWithValues: zip(0..<3, Array(repeating: 0, count: 3)))
+    // [0: 0, 1: 1, 2: 2]
     
     /* 키에 값을 array로 그룹핑 */
     let dict = Dictionary(grouping: fruit) { $0 }
