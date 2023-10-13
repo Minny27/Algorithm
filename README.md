@@ -248,19 +248,13 @@
 * **10진수 -> 3진수**
     ```swift
     var a = 45
-    var arr = [String]()
-    while a > 0 {
-      arr.append(String(a % 3))
-      a /= 3
-    }
-    print(String(arr.joined().reversed())) // 1200
+    print(String(a, radix: 3)) // 1200
     ```
 
-* **응용**
+* **3진수 -> 10진수**
     ```swift
-    var a = 45
-    var three = String(a, radix: 3)
-    print(three) // 1200
+    var a = "1200"
+    print(Int(a, radix: 3) ?? 0) // 45
     ```
 
 <br>
