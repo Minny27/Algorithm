@@ -7,7 +7,8 @@
 [6. 형변환](#형변환)  
 [7. 출력](#출력)  
 [8. 그래프 생성](#그래프-생성)  
-[9. 고급 연산자](#고급-연산자)
+[9. 고급 연산자](#고급-연산자)  
+[10. 진수](#진수)
 
 <br>
 
@@ -243,3 +244,23 @@
 
 <br>
 
+### 진수
+* **10진수 -> 3진수**
+    ```swift
+    var a = 45
+    var arr = [String]()
+    while a > 0 {
+      arr.append(String(a % 3))
+      a /= 3
+    }
+    print(String(arr.joined().reversed())) // 1200
+    ```
+
+* **응용**
+    ```swift
+    var a = 45
+    var three = String(a, radix: 3)
+    print(three) // 1200
+    ```
+
+<br>
