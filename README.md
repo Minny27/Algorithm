@@ -28,6 +28,14 @@
 
     /* 꺼내기 */
     let value = dict["A"] ?? 0 // key가 없는 경우, nil을 리턴하기 때문에 ??으로 처리.
+
+    /* 특정 value 기준 key 꺼내기 */
+    let dict = [1:2, 2:2, 3:4]
+    var answer = [Int]()
+    for (k, v) in dict {
+        if v == 2 { answer.append(k) }
+    }
+    print(answer) // [1, 2]
     ```
 
 * **응용**
