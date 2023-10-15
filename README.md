@@ -25,6 +25,7 @@
     for str in ["a","b","c"] {
         dict[str, default: 0] += 1
     }
+    print(dict) // ["a": 1, "b": 1, "c": 1]
 
     /* 꺼내기 */
     let value = dict["A"] ?? 0 // key가 없는 경우, nil을 리턴하기 때문에 ??으로 처리.
