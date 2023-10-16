@@ -84,6 +84,11 @@
     let nameArray = ["S","e","u","n","g","m","i","n"]
     let name = nameArray.joined()
     print(name) // Seungmin
+
+    또는
+
+    let name = nameArray.reduce("", +)
+    print(name) // Seungmin
     ```
     
 * **문자열을 다른 문자열로 바꾸기**
@@ -107,12 +112,20 @@
     ```swift
     let stringArray = ["010", "0001", "0101"]
     var array = stringArray.map { $0.map { String($0) } }
+    print(array) // [["0","1","0"], ["0","0","0","1"], ["0","1","0","1"]]
+    ```
+
+* **Two Dimensional String Array -> String**
+    ```swift
+    let array = [["0","1","0"], ["0","0","0","1"], ["0","1","0","1"]]
+    print(array.map { $0.joined() }.joined()) // 01000010101
     ```
 
 * **문자열 반복**
     ```swift
     let str = "Hi!"
-    let strs = String(repeating: str, count: 5) // Hi!Hi!Hi!Hi!Hi!
+    let strs = String(repeating: str, count: 5)
+    print(strs) // Hi!Hi!Hi!Hi!Hi!
     ```
 
 <br>
