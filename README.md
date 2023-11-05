@@ -223,6 +223,8 @@
     for string in stringArray {
         print(string.joined())
     }
+    // abc
+    // def
     ```
 
 <br>
