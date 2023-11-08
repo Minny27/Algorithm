@@ -179,7 +179,7 @@
     // 그러나 .0 .1로 접근해야하기 때문에 가독성이 떨어짐.
     typealias Point = (Int, Int)
     let point = Point(0, 0)
-    print(point.0, point.1)
+    print(point.0, point.1) // 0, 0
     ```
 
 * **구조체**
