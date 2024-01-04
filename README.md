@@ -5,7 +5,7 @@
 [4. 연산](#연산)  
 [5. 타입 생성](#타입-생성)  
 [6. 형변환](#형변환)  
-[7. 출력](#출력)  
+[7. 반복](#반복)  
 [8. 그래프 생성](#그래프-생성)  
 [9. 고급 연산자](#고급-연산자)  
 [10. 진수](#진수)
@@ -216,7 +216,7 @@
 
 <br>
 
-### 출력
+### 반복
 * **문자열 합쳐서 출력**
     ```swift
     let stringArray : [[String]] = [["a","b","c"], ["d","e","f"]]
@@ -225,6 +225,20 @@
     }
     // abc
     // def
+    ```
+    
+* **두 시퀀스 반복 - zip 활용**
+    ```swift
+    let firstSequence = [1,2,3]
+    let SecondSequence = [4,5,6]
+
+    var result = 0
+
+    for v in zip(firstSequence, SecondSequence) {
+        let (first, second) = v
+        result += first * second
+    }
+    print(result) // 32
     ```
 
 <br>
