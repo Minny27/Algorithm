@@ -163,6 +163,7 @@
             return String(first).uppercased() + dropFirst()
         }
     }
+    
     let word = "hello!"
     print(word.firstCharUppercase) // Hello!
     ```    
