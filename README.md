@@ -90,6 +90,13 @@
     let name = nameArray.reduce("", +)
     print(name) // Seungmin
     ```
+
+* **String Array -> String 띄어쓰기 적용**
+    ```swift
+    let array = ["a", "b", "c"]
+    
+    print(array.joined(separator: " ")) // a b c
+    ```
     
 * **문자열을 다른 문자열로 바꾸기**
     ```swift
@@ -127,6 +134,38 @@
     let strs = String(repeating: str, count: 5)
     print(strs) // Hi!Hi!Hi!Hi!Hi!
     ```
+
+* **문자열이 알파벳인지 아닌지 판별하는 변수 isAlpha 구현**
+    ```swift
+    extension String {
+        var isAlpha: Bool {
+            self.rangeOfCharacter(from: CharacterSet.letters.inverted) == nil
+        }
+    
+        또는
+        
+        var isAlpha: Bool {
+            guard let value = Character(self).asciiValue else { return false }
+            if (value >= 65 && value <= 90) || (value >= 97 && value <= 122) { return true }
+            else { return false }
+        }
+    }
+
+    let letter = "%"
+    print(letter.isAlpha) // false
+    ```
+
+* **첫 번째 문자열을 대문자로 변경하는 변수 firstCharUppercase 구현**
+    ```swift
+    extension StringProtocol {
+        var firstCharUppercase: String {
+            guard let first = first else { return "" }
+            return String(firstChar).uppercased() + dropFirst()
+        }
+    }
+    let word = "hello!"
+    print(word.firstCharUppercase) // Hello!
+    ```    
 
 <br>
     
