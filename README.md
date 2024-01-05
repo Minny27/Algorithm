@@ -135,7 +135,7 @@
     print(strs) // Hi!Hi!Hi!Hi!Hi!
     ```
 
-* **문자열이 알파벳인지 아닌지 판별하는 변수 isAlpha 구현**
+* **문자열이 알파벳인지 판별하는 변수 isAlpha 구현**
     ```swift
     extension String {
         var isAlpha: Bool {
