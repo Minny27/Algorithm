@@ -160,7 +160,7 @@
     extension StringProtocol {
         var firstCharUppercase: String {
             guard let first = first else { return "" }
-            return String(firstChar).uppercased() + dropFirst()
+            return String(first).uppercased() + dropFirst()
         }
     }
     let word = "hello!"
