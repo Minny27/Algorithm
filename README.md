@@ -236,7 +236,7 @@
       }
     }
     let point = Point(0, 0)
-    print(point.i, point.j)
+    print(point.i, point.j) // 0 0
     ```
 
 <br>
