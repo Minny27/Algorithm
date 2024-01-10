@@ -334,5 +334,10 @@
     var a = "1200"
     print(Int(a, radix: 3) ?? 0) // 45
     ```
-
+    
+* **2진수에서의 1의 개수**
+    ```swift
+    let n = 11 // 1011
+    print(n.nonzeroBitCount) // 3
+    ```
 <br>
