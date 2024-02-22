@@ -5,7 +5,7 @@
 // 그래서 start, end 둘 다 set에 넣을 수 있는 구조체를 만들어야 겠다고 생각
 // typealias는 Hashable을 준수하지 않는 다는 것을 알게 됨...
 // 풀이 방법: CoordinatesSet에 특정 지점으로 이동할 때, start, end 좌표를 넣고
-// cSet에 두 지점을 각각 시작, 끝 점으로 하는 set이 없으면 값을 넣고 cSet.count / 2리턴
+// cSet에 두 지점을 각각 시작, 끝 점으로 하는 값을 넣고 cSet.count / 2 리턴
 
 import Foundation
 
@@ -21,7 +21,7 @@ struct CoordinatesSet: Hashable {
 
 func solution(_ dirs:String) -> Int {
     var cSet: Set<CoordinatesSet> = []
-    var d: [Character: [Int]] = ["U": [0,1],"D": [0,-1],"L": [-1,0],"R": [1,0]]
+    var d: [Character: [Int]] = ["U": [0,1], "D": [0,-1], "L": [-1,0], "R": [1,0]]
     var start = Coordinates(x: 0, y: 0)
     
     for dir in dirs {
@@ -35,10 +35,9 @@ func solution(_ dirs:String) -> Int {
         let startToEnd = CoordinatesSet(start: start, end: end)
         let endToStart = CoordinatesSet(start: end, end: start)
         
-        if !cSet.contains(startToEnd) && !cSet.contains(endToStart) {
-            cSet.insert(startToEnd)
-            cSet.insert(endToStart)
-        }
+        cSet.insert(startToEnd)
+        cSet.insert(endToStart)
+
         start = end
     }
     
