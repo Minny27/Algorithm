@@ -18,7 +18,7 @@ while true {
     
     var q = [Character]()
     
-    for c in line {
+    while true {
         if c == Character("[") || c == Character("(") {
             q.append(c)
             continue
