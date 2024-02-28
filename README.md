@@ -166,7 +166,8 @@
     
     let word = "hello!"
     print(word.firstCharUppercase) // Hello!
-    ```    
+    ```
+* 문자열 indexing, start(with:), hasPrefix() 추가 예정
 
 <br>
     
