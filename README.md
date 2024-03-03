@@ -7,6 +7,7 @@
 [6. Iterator](#Iterator)  
 [7. Graph](#Graph)  
 [8. Advanced Operator](#Advanced-Operator)  
+[9. Pow, Sqrt, Radix](#Pow,-Sqrt,-Radix])
 
 <br>
 
@@ -301,8 +302,10 @@
     let value = 0b00001111 ^ 0b00001101 // 00000010, 2
     ```
 
-#### pow, sqrt
-* **제곱수**
+<br>
+
+### Pow, Sqrt, Radix
+* **pow**
     ```swift
     import Foundation // Foundataion을 꼭 import 해야함
     // 연산하는 타입은 모두 Double이라는 걸 명심!
@@ -311,13 +314,12 @@
     print(pow(value, 2.0)) // 10000.0
     ```
 
-* **제곱근**
+* **sqrt**
     ```swift
     let value: double = 100.0
     print(sqrt(value, 2.0)) // 10.0
     ```
 
-#### Radix
 * **10진수 -> 3진수**
     ```swift
     var a = 45
