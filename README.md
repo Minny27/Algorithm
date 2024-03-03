@@ -6,7 +6,7 @@
 [5. Casting](#Casting)  
 [6. Iterator](#Iterator)  
 [7. Graph](#Graph)  
-[8. Advenced Operator](#Advenced-Operator)  
+[8. Advanced Operator](#Advanced-Operator)  
 
 <br>
 
