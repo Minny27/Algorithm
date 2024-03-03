@@ -7,7 +7,7 @@
 [6. Iterator](#Iterator)  
 [7. Graph](#Graph)  
 [8. Advanced Operator](#Advanced-Operator)  
-[9. Pow, Sqrt, Radix](#Pow-Sqrt-Radix])  
+[9. Pow, Sqrt, Radix](#Pow-Sqrt-Radix)  
 
 <br>
 
