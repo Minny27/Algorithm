@@ -1,14 +1,12 @@
 ## 알고리즘 문제를 풀 때 자주 사용하는 문법
-[1. Collection Type](#Collection Type)  
+[1. Collection Type](#Collection-Type)  
 [2. String](#String)  
 [3. Sort](#Sort)  
-[4. pow, sqrt, radix](#연산)  
-[5. 타입 생성](#타입-생성)  
-[6. 형변환](#형변환)  
-[7. 반복](#반복)  
-[8. 그래프 생성](#그래프-생성)  
-[9. 고급 연산자](#고급-연산자)  
-[10. 진수](#진수)  
+[4. Type](#Type)  
+[5. Casting](#Casting)  
+[6. Iterator](#Iterator)  
+[7. Graph](#Graph)  
+[8. Advenced Operator](#Advenced-Operator)  
 
 <br>
 
@@ -57,7 +55,7 @@
 
 <br>
 
-### 문자열
+### String
 * **Hour to Second**
     ```swift
     import Foundation
@@ -171,7 +169,7 @@
 
 <br>
     
-### 정렬
+### Sort
 * **1차원 배열**
     ```swift
     var array: [Int] = [5, 3, 1, 4]
@@ -195,25 +193,7 @@
 
 <br>
 
-### 연산
-* **제곱수**
-    ```swift
-    import Foundation // Foundataion을 꼭 import 해야함
-    // 연산하는 타입은 모두 Double이라는 걸 명심!
-    
-    let value: double = 100.0
-    print(pow(value, 2.0)) // 10000.0
-    ```
-
-* **제곱근**
-    ```swift
-    let value: double = 100.0
-    print(sqrt(value, 2.0)) // 10.0
-    ```
-
-<br>
-
-### 타입 생성
+### Type
 * **Typealias**
     ```swift
     // typealias로 모델을 생성하면 객체를 생성할 때, 파라미터 이름을 쓰지 않아도 됨.
@@ -223,7 +203,7 @@
     print(point.0, point.1) // 0, 0
     ```
 
-* **구조체**
+* **Struct**
     ```swift
     // init에 argument label을 '_'로 줘서 typealias처럼 사용할 수 있음
     // 그러나 구현 시간이 typealias보다 오래 걸림
@@ -242,7 +222,7 @@
 
 <br>
 
-### 형변환
+### Casting
 * **Character -> Int**
     ```swift
     let str = "a"
@@ -257,7 +237,7 @@
 
 <br>
 
-### 반복
+### Iterator
 * **문자열 합쳐서 출력**
     ```swift
     let stringArray : [[String]] = [["a","b","c"], ["d","e","f"]]
@@ -284,7 +264,7 @@
 
 <br>
 
-### 그래프 생성
+### Graph
 * **두 노드의 연결을 띄어쓰기로 주어졌을 때**
     ```swift
     /* 양방향 기준 */
@@ -300,7 +280,7 @@
 
 <br>
 
-### 고급 연산자
+### Advanced Operator
 * **NOT Operator(~)**
     ```swift
     let value = ~0b00001111 // 11110000, -16
@@ -321,9 +301,23 @@
     let value = 0b00001111 ^ 0b00001101 // 00000010, 2
     ```
 
-<br>
+#### pow, sqrt
+* **제곱수**
+    ```swift
+    import Foundation // Foundataion을 꼭 import 해야함
+    // 연산하는 타입은 모두 Double이라는 걸 명심!
+    
+    let value: double = 100.0
+    print(pow(value, 2.0)) // 10000.0
+    ```
 
-### 진수
+* **제곱근**
+    ```swift
+    let value: double = 100.0
+    print(sqrt(value, 2.0)) // 10.0
+    ```
+
+#### Radix
 * **10진수 -> 3진수**
     ```swift
     var a = 45
@@ -341,4 +335,5 @@
     let n = 11 // 1011
     print(n.nonzeroBitCount) // 3
     ```
+
 <br>
