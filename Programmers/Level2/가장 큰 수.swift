@@ -11,26 +11,59 @@
 // 퀵 소트 자체를 구현하는 문제인 것 같음..
 // 다음에 다시 풀어봐야할 듯...
 
+// 다시 풀었음에도 테스트 케이스 1~6, 11이 안 됨..
+// 뭐가 문젤까.. ㅎㅎㅎㅎ
+// 다시 다시 풀어봅세
+
 import Foundation
 
 func solution(_ numbers:[Int]) -> String {
-    return numbers.map ({ String($0) }).sorted { v1 , v2 in
-        if v2 < v1 {
-            if v2.count < v1.count {
-                let v1Arr = v1.map { String($0) }
-                let v2Arr = v2.map { String($0) }
-                for i in 0..<v2.count {
-                    if v2Arr[i] < v1Arr[i] { return true }
-                    else if v2Arr[i] > v1Arr[i] { return false }
-                }
-                for i in v2.count..<v1.count {
-                    if v2Arr[v2.count - 1] < v1Arr[i] { return true }
-                    else if v2Arr[v2.count - 1] > v1Arr[i] { return false }
-                }
-                return true
-            } else { return true }
-        } else {
-            return false
+    return numbers.sorted {
+        let a = String($0).map { $0 }
+        let b = String($1).map { $0 }
+              
+        for (v1, v2) in zip(a, b) {
+            if v1 < v2 { return a.count > b.count ? $0 < $1 : $0 > $1 }
+            else if v1 > v2 { return a.count < b.count ? $0 < $1 : $0 > $1 }
         }
-    }.joined()
+        
+        if a.count < b.count {
+            for i in a.count..<b.count {
+                if b[i] < a[a.count-1] { return $0 < $1 } // 1  10
+                else if b[i] > a[a.count-1] { return $0 > $1 } // 3  34
+            }
+        }
+        else if b.count < a.count {
+            for i in b.count..<a.count {
+                if a[i] < b[b.count-1] { return $0 < $1 } // 10 1
+                else if a[i] > b[b.count-1] { return $0 > $1 }
+            }
+        }
+        return $0 < $1
+    }.map { String($0) }.joined()
 }
+
+// 이전 풀이
+// import Foundation
+
+// func solution(_ numbers:[Int]) -> String {
+//     return numbers.map ({ String($0) }).sorted { v1 , v2 in
+//         if v2 < v1 {
+//             if v2.count < v1.count {
+//                 let v1Arr = v1.map { String($0) }
+//                 let v2Arr = v2.map { String($0) }
+//                 for i in 0..<v2.count {
+//                     if v2Arr[i] < v1Arr[i] { return true }
+//                     else if v2Arr[i] > v1Arr[i] { return false }
+//                 }
+//                 for i in v2.count..<v1.count {
+//                     if v2Arr[v2.count - 1] < v1Arr[i] { return true }
+//                     else if v2Arr[v2.count - 1] > v1Arr[i] { return false }
+//                 }
+//                 return true
+//             } else { return true }
+//         } else {
+//             return false
+//         }
+//     }.joined()
+// }
