@@ -8,6 +8,7 @@
 [7. Graph](#Graph)  
 [8. Advanced Operator](#Advanced-Operator)  
 [9. Pow, Sqrt, Radix](#Pow-Sqrt-Radix)  
+[10. Regex](#Regex)  
 
 <br>
 
@@ -336,6 +337,15 @@
     ```swift
     let n = 11 // 1011
     print(n.nonzeroBitCount) // 3
+    ```
+
+<br>
+
+### Regex
+* **문자열에서 특정 문자열 삭제**
+    ```swift
+    var string = "nice to meet you".replacingOccurrences(of: "[aeiou]", with: "", options: .regularExpression) // 모음 제거
+    print(string) // nc t mt y
     ```
 
 <br>
