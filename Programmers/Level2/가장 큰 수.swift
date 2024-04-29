@@ -15,33 +15,68 @@
 // 뭐가 문젤까.. ㅎㅎㅎㅎ
 // 다시 다시 풀어봅세
 
-import Foundation
+// 이번 시도에서도 실패해서 답을 참고함..
+// 앞뒤로 문자열을 더한 문자열을 비교한 정렬은 생각도 못함...
 
-func solution(_ numbers:[Int]) -> String {
-    return numbers.sorted {
-        let a = String($0).map { $0 }
-        let b = String($1).map { $0 }
-              
-        for (v1, v2) in zip(a, b) {
-            if v1 < v2 { return a.count > b.count ? $0 < $1 : $0 > $1 }
-            else if v1 > v2 { return a.count < b.count ? $0 < $1 : $0 > $1 }
-        }
-        
-        if a.count < b.count {
-            for i in a.count..<b.count {
-                if b[i] < a[a.count-1] { return $0 < $1 } // 1  10
-                else if b[i] > a[a.count-1] { return $0 > $1 } // 3  34
-            }
-        }
-        else if b.count < a.count {
-            for i in b.count..<a.count {
-                if a[i] < b[b.count-1] { return $0 < $1 } // 10 1
-                else if a[i] > b[b.count-1] { return $0 > $1 }
-            }
-        }
-        return $0 < $1
-    }.map { String($0) }.joined()
+func solution(_ numbers: [Int]) -> String {
+    let sortedNumbers = numbers.map { String($0) }.sorted { $0 + $1 > $1 + $0 }
+    if sortedNumbers.first == "0" {
+        return "0"
+    }
+    return sortedNumbers.joined()
 }
+
+// var a = [3, 30, 34, 5, 9]
+// let b = a.sorted {
+//     print(compare($0, $1))
+//     return compare($0, $1)
+// }
+// print(b)
+
+// func compare(_ a: Int, _ b: Int) -> Bool {
+//     let min = String([a, b].min()!).map { String($0) }
+//     let max = String([a, b].max()!).map { String($0) }
+//     print(min, max)
+    
+//     for i in 0..<max.count {
+//         if i < min.count {
+//             if max[i] > min[i] { return true }
+//             else if max[i] < min[i] { return false }
+//         } else {
+//             if min[min.count - 1] > max[i] { return false }
+//             else if min[min.count - 1] < max[i] { return true }
+//         }
+//     }
+//     return true
+// }
+
+
+// 이전 풀이
+// func solution(_ numbers:[Int]) -> String {
+//     return numbers.sorted {
+//         let a = String($0).map { $0 }
+//         let b = String($1).map { $0 }
+              
+//         for (v1, v2) in zip(a, b) {
+//             if v1 < v2 { return a.count > b.count ? $0 < $1 : $0 > $1 }
+//             else if v1 > v2 { return a.count < b.count ? $0 < $1 : $0 > $1 }
+//         }
+        
+//         if a.count < b.count {
+//             for i in a.count..<b.count {
+//                 if b[i] < a[a.count-1] { return $0 < $1 } // 1  10
+//                 else if b[i] > a[a.count-1] { return $0 > $1 } // 3  34
+//             }
+//         }
+//         else if b.count < a.count {
+//             for i in b.count..<a.count {
+//                 if a[i] < b[b.count-1] { return $0 < $1 } // 10 1
+//                 else if a[i] > b[b.count-1] { return $0 > $1 }
+//             }
+//         }
+//         return $0 < $1
+//     }.map { String($0) }.joined()
+// }
 
 // 이전 풀이
 // import Foundation
