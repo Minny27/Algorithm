@@ -263,6 +263,12 @@
     }
     print(result) // 32
     ```
+* **시퀀스의 특정 인덱스의 값만 추출**
+    ```swift
+    // names 문자열 시퀀스에서 앞에서부터 5의 배수 번 째의 이름을 추출하고 싶을 때
+    let names = ["nami", "ahri", "jayce", "garen", "ivern", "vex", "jinx"]
+    print(stride(from: 0, to: names.count, by: 5).map { names[$0] }) // ["nami", "vex"]
+    ```
 
 <br>
 
